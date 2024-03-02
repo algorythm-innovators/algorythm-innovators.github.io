@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Algorythm Innovators - We build to connect</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    </head>
+    <body>
+        <div id="header">
+            <nav>
+                <a class="logo" href="/">A<span>i</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="view">
+            <div>
+                <div class="frame" id="home">
+                    <video src="placeholder.mp4" autoplay muted loop style="width: inherit; height: inherit; z-index: 0; position: absolute; object-fit: cover;"></video>
+                    <div class="overlay"></div>
+                    <section>
+                        <div class="m-width">
+                            <strong class="text-white animate" delay="200">We build to connect</strong>
+                            <h1 class="h2 text-white animate" delay="400">Algorythm <span>i</span>nnovators<span>.</span></h1>
+                            <p class="animate" delay="600">
+                                Working with client and community, we deliver masterplans that create vibrant new places and spaces, attract people, and encourage.
+                            </p>
+                        </div>
+                    </section>
+                </div>
+                <div class="frame" id="about">
+                    <section class="row">
+                        <div class="col-50">
+                            <div class="half-square animate">
+                                <p class="h1 text-white animate" delay="200">5<span>+</span></p>
+                                <p class="text-white h4 animate" delay="400">
+                                    Years<br>
+                                    Working<br>
+                                    Experience
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <strong class="text-white animate" delay="600">With</strong>
+                            <h2 class="text-white animate" delay="800">Great Experience</h2>
+                            <strong class="text-white animate" delay="1000">Comes Great Responsibility</strong>
+                            <p class="animate" delay="1200"> 
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi sem, egestas a auctor at, ornare at lectus. Sed vehicula neque libero, quis suscipit felis mattis in. Sed varius lorem quis lorem congue vestibulum. Nam sit amet sapien et nulla aliquet eleifend nec at dui. Donec ornare mattis neque ac hendrerit.
+                            </p>
+                        </div>
+                    </section>
+                </div>
+                <div class="frame" id="projects">projects</div>
+                <div class="frame" id="services">services</div>
+                <div class="frame" id="contact">contact</div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="js/jquery.observe.js"></script>
+        <script>
+            $(document).ready(function() {
+                var currentFrame = 0;
+                var totalFrames = $(".view .frame").length;
+                var windowHeight = $(window).height();
+                var scrolling = false;
+
+                // Scroll to the corresponding frame when anchor is clicked
+                $(".nav-links .nav-link").on("click", function(e) {
+                    e.preventDefault();
+                    var targetId = $(this).attr("href");
+                    var targetFrame = $(targetId);
+                    var targetIndex = $(".view .frame").index(targetFrame);
+                    currentFrame = targetIndex;
+                    scrollToFrame();
+                });
+
+                // Scroll one frame at a time on wheel event
+                $(window).on("wheel", function(event) {
+                    //event.preventDefault();
+                    if (!scrolling) {
+                        if (event.originalEvent.deltaY < 0) {
+                            currentFrame = Math.max(0, currentFrame - 1);
+                        } else {
+                            currentFrame = Math.min(totalFrames - 1, currentFrame + 1);
+                        }
+                        scrollToFrame();
+                    }
+                });
+
+                // Function to scroll to the current frame
+                function scrollToFrame() {
+                    scrolling = true;
+                    var targetPosition = -currentFrame * windowHeight;
+                    $(".view > div").animate({ top: targetPosition }, 800, function() {
+                        scrolling = false;
+                        setActiveAnchor();
+                        updateAnimations();
+                    });
+                }
+
+                // Function to set active anchor based on current frame
+                function setActiveAnchor() {
+                    $(".nav-links .nav-link").removeClass("active");
+                    $(".nav-links .nav-link").eq(currentFrame).addClass("active");
+                }
+
+                // Function to update animations based on active frame
+                function updateAnimations() {
+                    $(".view .frame").removeClass("active");
+                    $(".view .frame").eq(currentFrame).addClass("active");
+
+                    $(".view .frame.active .animate").each(function(index) {
+                        var $delay = 0;
+                        if ($(this).attr("delay")) {
+                            $delay = $(this).attr("delay");
+                        }
+                        $(this).delay($delay).queue(function(next) {
+                            $(this).addClass("animate__animated animate__fadeInUp");
+                            next();
+                        });
+                    });
+
+                    $(".view .frame:not(.active) .animate").each(function(index) {
+                        var $delay = 0;
+                        if ($(this).attr("delay")) {
+                            $delay = $(this).attr("delay");
+                        }
+                        $(this).delay($delay).queue(function(next) {
+                            $(this).removeClass("animate__animated animate__fadeInUp");
+                            next();
+                        });
+                    });
+                }
+
+                updateAnimations();
+            });
+        </script>
+    </body>
+</html>
