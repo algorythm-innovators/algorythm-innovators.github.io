@@ -24,7 +24,7 @@
         <div class="view">
             <div>
                 <div class="frame" id="home">
-                    <video src="placeholder.mp4" autoplay muted loop style="width: inherit; height: inherit; z-index: 0; position: absolute; object-fit: cover;"></video>
+                    <video class="section-bg" src="assets/placeholder.webm" autoplay muted loop ></video>
                     <div class="overlay"></div>
                     <section>
                         <div class="m-width">
@@ -36,6 +36,7 @@
                         </div>
                     </section>
                 </div>
+                
                 <div class="frame" id="about">
                     <section class="row">
                         <div class="col-50">
@@ -58,9 +59,78 @@
                         </div>
                     </section>
                 </div>
-                <div class="frame" id="projects">projects</div>
+                
+                <div class="frame" id="projects">
+                    <section>
+                        <h2 class="text-white h3 animate">Recent Projects</h2><br>
+                        <div class="section row">
+                            <div class="col-33">
+                                <div class="project animate" delay="200">
+                                    <img src="assets/projects/iprints_full.png">
+                                    <div class="overlay"></div>
+                                    <div class="project-container">
+                                        <h3 class="h4">iPrints&Graphics</h3>
+                                        <p>iPrints&Graphics Multimedia Services provides top-quality products and services at competitive prices.</p>
+
+                                        <a href="https://ipringsandgraphics.com/" target="_blank" class="button">View Site</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-33">
+                                <div class="project animate" delay="400">
+                                    <img src="assets/projects/smr_full.png">
+                                    <div class="overlay"></div>
+                                    <div class="project-container">
+                                        <h3 class="h4">South Mountain Resort</h3>
+                                        <p>South Mountain Resort is a reservation website that let the users/customer's book using this website without a hassle.</p>
+                                        
+                                        <a href="https://staging.rondeocreates.com" target="_blank" class="button">View Site</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-33">
+                                <div class="project animate" delay="600">
+                                    <img src="assets/projects/evolve_full.png">
+                                    <div class="overlay"></div>
+                                    <div class="project-container">
+                                        <h3 class="h4">EVOLVE Global Services</h3>
+                                        <p>A dynamic website offering cutting-edge Financial Business Process Outsourcing (BPO) solutions. Transforming financial operations with expertise, innovation, and efficiency.</p>
+                                        <a href="https://evolveglobal.ph/" target="_blank" class="button">View Site</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
                 <div class="frame" id="services">services</div>
-                <div class="frame" id="contact">contact</div>
+                
+                <div class="frame" id="contact">
+                    <img class="section-bg" src="assets/contact.jpg">
+                    <div class="overlay"></div>
+                    <section class="row">
+                        <div class="col">
+                            <h2 class="h3 text-white animate">Contact</h2>
+                            <p class="animate" delay="200">Lorem ipsum dolor sit amet.</p>
+                            <p class="h4 animate" delay="400">Maria, Siquijor, 6228 PH</p>
+                            <p class="h4 animate" delay="600">(+63) 961-593-6086</p>
+                            <p class="animate" delay="700">contact.algorythm@gmail.com</p>
+                        </div>
+                        <div class="col">
+                            <p class="h4 text-white animate" delay="200">
+                                Let's grab a coffee and jump on<br>
+                                conversation. <span>Chat with us.</span>
+                            </p>
+                            <br>
+                            <form class="animate" delay="400">
+                                <input type="text" placeholder="Your Name" required>
+                                <input type="email" placeholder="Your Email" required>
+                                <textarea placeholder="Message" rows="7"></textarea>
+                                <button class="button" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
