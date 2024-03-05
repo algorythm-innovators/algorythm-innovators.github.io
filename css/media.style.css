@@ -1,0 +1,22 @@
+
+@media screen and (max-width: 1024px) {
+    h1, .h1 {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+    h2, .h2 {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+    section {
+        padding: 2rem;
+    }
+    .row,
+    .row {
+        flex-direction: column;
+    }
+    .col, .col-50, .col-33 {
+        flex: 0 100%;
+        width: 100%;
+    }
+}
