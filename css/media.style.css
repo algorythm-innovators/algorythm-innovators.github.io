@@ -19,4 +19,32 @@
         flex: 0 100%;
         width: 100%;
     }
+    
+    #header nav {
+        padding: 32px;
+    }
+    #header nav ul.nav-links {
+        margin: 0;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        flex-direction: column;
+        background-color: var(--black);
+        gap: 5rem;
+        padding: 80px 60px;
+        left: 100%;
+        transition: 0.6s ease;
+    }
+    #header nav ul.nav-links.active {
+        left: 0;
+    }
+    #header nav ul.nav-links li a {
+        font-size: 2rem;
+    }
+    #header nav .menu-toggle {
+        display: block;
+        z-index: 10;
+    }
 }

@@ -12,6 +12,7 @@
         <div id="header">
             <nav>
                 <a class="logo" href="/">A<span>i</span></a>
+                <button class="menu-toggle">=</button>
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
@@ -232,6 +233,9 @@
                 }
             });
 
+            $('.menu-toggle').click(()=>{
+                $('.nav-links').toggleClass('active');
+            });
         </script>
     </body>
 </html>
